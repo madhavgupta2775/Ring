@@ -8,7 +8,6 @@
 #include <string_view>
 #include <random>
 #include "SHA256.h"
-#include "Random.h"
 
 using std::string_view;
 using std::string;
@@ -128,16 +127,25 @@ public:
     }
 };
 
+
+std::mt19937_64& get_rnd_generator() {
+    static std::random_device rd{};
+    static std::seed_seq ss{ rd(), rd(), rd(), rd(), rd(), rd(), rd(), rd() };
+    static std::mt19937_64 mt{ ss };
+    return mt;
+}
+
 int main() {
     ring x(1ll << 32, 5);
     x.add_destination("ab");
     x.find_destination("ab");
     x.remove_destination("ab");
-    Random<int> rnd{ 1, 6 };
+    std::mt19937_64& mt = get_rnd_generator();
+    std::uniform_int_distribution nums{ 1, 6 };
     int arr[7];
     memset(arr, 0, sizeof arr);
     for (int i = 0; i < 20000; i++) {
-        arr[rnd.rand_num()]++;
+        arr[nums(mt)]++;
     }
     for (auto x : arr) {
         std::cout << x << std::endl;
