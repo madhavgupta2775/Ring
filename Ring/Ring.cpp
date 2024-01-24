@@ -8,6 +8,7 @@
 #include <string_view>
 #include <random>
 #include "SHA256.h"
+#include "Random.h"
 
 using std::string_view;
 using std::string;
@@ -132,4 +133,13 @@ int main() {
     x.add_destination("ab");
     x.find_destination("ab");
     x.remove_destination("ab");
+    Random<int> rnd{ 1, 6 };
+    int arr[7];
+    memset(arr, 0, sizeof arr);
+    for (int i = 0; i < 20000; i++) {
+        arr[rnd.rand_num()]++;
+    }
+    for (auto x : arr) {
+        std::cout << x << std::endl;
+    }
 }

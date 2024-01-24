@@ -134,6 +134,7 @@
     <ClCompile Include="SHA256.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Random.h" />
     <ClInclude Include="SHA256.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
