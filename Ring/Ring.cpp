@@ -7,6 +7,10 @@
 #include <array>
 #include <string_view>
 #include <random>
+#include <fstream>
+#include <algorithm>
+#include <iomanip>
+#define HEX( x, len ) std::setw(2 * len) << std::setfill('0') << std::hex << std::uppercase << (((1ll << (8 * len)) - 1) & (unsigned int)( x )) << std::dec
 #include "SHA256.h"
 
 using std::string_view;
@@ -67,24 +71,30 @@ public:
     }
 };
 
+using uint64 = aggregate<std::uint32_t>;
 using uint128_t = aggregate<std::uint64_t>;
 using uint256_t = aggregate<uint128_t>;
 
+template <typename T>
 struct ring
 {
-    using type = uint256_t;
 private:
     const std::size_t ring_node_count;
     const std::size_t replication_count;
-    set<type> vnode_tree;
-    map<string, vector<type>> node_to_vnode; // node, vnodes
-    map<type, string> vnode_to_node; // vnode, node
+    set<T> vnode_tree;
+    map<string, vector<T>> node_to_vnode; // node, vnodes
+    map<T, string> vnode_to_node; // vnode, node
 
-    type hash(string input) 
+    T hash(string input) 
     {
         SHA256 sha;
         sha.update(input);
-        return sha.digest();
+        auto arr = sha.digest();
+        std::array<uint8_t, sizeof(T)> tbr;
+        for (int i = 0; i < tbr.size(); i++) {
+            tbr[i] = arr[i];
+        }
+        return tbr;
     }
 public:
     ring(std::size_t ring_node_count, std::size_t replication_count) : ring_node_count{ ring_node_count }, replication_count{ replication_count }
@@ -119,13 +129,32 @@ public:
     }
     std::string_view find_destination(std::string_view input) 
     {
-        uint256_t ip_hash = hash(string(input));
+        T ip_hash = hash(string(input));
         if (lower_bound(vnode_tree.begin(), vnode_tree.end(), ip_hash) != vnode_tree.end())
             return vnode_to_node[*lower_bound(vnode_tree.begin(), vnode_tree.end(), ip_hash)];
         else
             return vnode_to_node[*vnode_tree.begin()];
     }
 };
+
+void hex_view(const char* str, const size_t len)
+{
+    for (int i = 0; i < ((int)len >> 4) + (len % 16 ? 1 : 0); ++i)
+    {
+        int start = i * 16;
+        int end = std::min(i * 16 + 15, (int)len - 1);
+        std::cout << "0x" << HEX(start, 4) << " |  ";
+        for (int j = start; j <= end; ++j)
+            std::cout << HEX(str[j], 1) << (j % 8 == 7 ? "  " : " ");
+
+        for (size_t j = end; j < i * 16 + 15; ++j)
+            std::cout << (j % 8 == 7 ? "    " : "   ");
+        std::cout << "| ";
+        for (size_t j = start; j <= end; ++j)
+            std::cout << (std::isprint(str[j]) ? str[j] : '.');
+        std::cout << '\n';
+    }
+}
 
 
 std::mt19937_64& get_rnd_generator() {
@@ -136,7 +165,7 @@ std::mt19937_64& get_rnd_generator() {
 }
 
 int main() {
-    ring x(1ll << 32, 5);
+    ring<uint64> x(1ll << 32, 5);
     x.add_destination("ab");
     x.find_destination("ab");
     x.remove_destination("ab");
@@ -150,4 +179,18 @@ int main() {
     for (auto x : arr) {
         std::cout << x << std::endl;
     }
+
+    std::uniform_int_distribution t1{ 1, 1000 };
+    int str_size = t1(mt);
+    std::cout << str_size << std::endl;
+    int* ptr{ new int[str_size] {} };
+    std::uniform_int_distribution temp{ 32, 126 };
+    for(int i = 0; i < str_size; i++) {
+        ptr[i] = temp(mt);
+    }
+    char* str = (char*)ptr;
+    for (int i = 0; i < str_size*4; i++) {
+        std::cout << str[i];
+    }
+    std::cout << std::endl;
 }
