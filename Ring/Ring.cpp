@@ -164,33 +164,64 @@ std::mt19937_64& get_rnd_generator() {
     return mt;
 }
 
+string rnd_string() {
+    std::uniform_int_distribution char_gen{ 33, 126 }, size_gen{ 1, 1000 };
+    string s; int str_size = size_gen(get_rnd_generator());
+    for (int i = 0; i < str_size; i++) {
+        s += (char)char_gen(get_rnd_generator());
+    }
+    return s;
+}
+
+template <typename U>
+void do_runs(ring<U>& x, int runs) {
+    std::mt19937_64& mt = get_rnd_generator();
+    std::uniform_int_distribution nums{ 1, 3 };
+    std::ofstream out(std::format("C:\\Users\\91730\\source\\repos\\Ring\\tests\\%.iruns_64.txt", runs));
+    set<string> IPs;
+    for (int i = 0; i < runs; i++) {
+        int choice = nums(mt);
+        if (choice == 1) {
+            // add a destination
+            string ip = rnd_string();
+            while (IPs.find(ip) != IPs.end())
+                ip = rnd_string();
+            IPs.insert(ip);
+            x.add_destination(ip);
+            out << "added destination: " << ip << "\n";
+        }
+        else if (choice == 2) {
+            // remove a destination
+            if (IPs.size() == 0) {
+                out << "No destination to remove.\n";
+                continue;
+            }
+            auto ip = IPs.lower_bound(rnd_string());
+            if (ip == IPs.end())
+                ip = IPs.begin();
+            x.remove_destination(*ip);
+            out << "removed destiantion: " << *ip << "\n";
+            IPs.erase(*ip);
+        }
+        else {
+            if (IPs.size() == 0) {
+                out << "No destination to find.\n";
+                continue;
+            }
+            string val = rnd_string();
+            auto ip = x.find_destination(val);
+            out << "nearest destination for " << val << " is: " << ip << "\n";
+        }
+    }
+    out.close();
+}
+
 int main() {
     ring<uint64> x(1ll << 32, 5);
-    x.add_destination("ab");
-    x.find_destination("ab");
-    x.remove_destination("ab");
-    std::mt19937_64& mt = get_rnd_generator();
-    std::uniform_int_distribution nums{ 1, 6 };
-    int arr[7];
-    memset(arr, 0, sizeof arr);
-    for (int i = 0; i < 20000; i++) {
-        arr[nums(mt)]++;
-    }
-    for (auto x : arr) {
-        std::cout << x << std::endl;
-    }
-
-    std::uniform_int_distribution t1{ 1, 1000 };
-    int str_size = t1(mt);
-    std::cout << str_size << std::endl;
-    int* ptr{ new int[str_size] {} };
-    std::uniform_int_distribution temp{ 32, 126 };
-    for(int i = 0; i < str_size; i++) {
-        ptr[i] = temp(mt);
-    }
-    char* str = (char*)ptr;
-    for (int i = 0; i < str_size*4; i++) {
-        std::cout << str[i];
-    }
-    std::cout << std::endl;
+    int runs{ 0 }; std::cin >> runs;
+    do_runs(x, runs);
+    ring<uint128_t> y(1ll << 32, 5);
+    do_runs(y, runs);
+    ring<uint256_t> z(1ll << 32, 5);
+    do_runs(z, runs);
 }
