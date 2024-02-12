@@ -105,7 +105,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <EnableModules>true</EnableModules>
+      <EnableModules>false</EnableModules>
       <BuildStlModules>true</BuildStlModules>
     </ClCompile>
     <Link>
@@ -132,9 +132,10 @@
   <ItemGroup>
     <ClCompile Include="Ring.cpp" />
     <ClCompile Include="SHA256.cpp" />
+    <ClCompile Include="sha256.ixx" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SHA256.h" />
+    <ClInclude Include="SHA256_1.ixx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

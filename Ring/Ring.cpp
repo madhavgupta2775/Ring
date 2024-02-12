@@ -1,17 +1,19 @@
-#include <iostream>
-#include <cstring>
-#include <set>
-#include <map>
-#include <vector>
-#include <cstdint>
-#include <array>
-#include <string_view>
-#include <random>
-#include <fstream>
-#include <algorithm>
-#include <iomanip>
+//#include <iostream>
+//#include <cstring>
+//#include <set>
+//#include <map>
+//#include <vector>
+//#include <cstdint>
+//#include <array>
+//#include <string_view>
+//#include <random>
+//#include <fstream>
+//#include <algorithm>
+//#include <iomanip>
+import std;
 #define HEX( x, len ) std::setw(2 * len) << std::setfill('0') << std::hex << std::uppercase << (((1ll << (8 * len)) - 1) & (unsigned int)( x )) << std::dec
-#include "SHA256.h"
+import sha256;
+
 
 using std::string_view;
 using std::string;
@@ -71,7 +73,7 @@ public:
     }
 };
 
-using uint64 = aggregate<std::uint32_t>;
+//using uint64_t = aggregate<std::uint32_t>;
 using uint128_t = aggregate<std::uint64_t>;
 using uint256_t = aggregate<uint128_t>;
 
@@ -89,12 +91,11 @@ private:
     {
         SHA256 sha;
         sha.update(input);
-        auto arr = sha.digest();
-        std::array<uint8_t, sizeof(T)> tbr;
-        for (int i = 0; i < tbr.size(); i++) {
-            tbr[i] = arr[i];
-        }
-        return tbr;
+        auto arr = sha.digest();        
+        //return tbr;
+        T temp; 
+        std::memcpy(&temp, arr.data(), sizeof(T));
+        return temp;
     }
 public:
     ring(std::size_t ring_node_count, std::size_t replication_count) : ring_node_count{ ring_node_count }, replication_count{ replication_count }
@@ -165,7 +166,7 @@ std::mt19937_64& get_rnd_generator() {
 }
 
 string rnd_string() {
-    std::uniform_int_distribution char_gen{ 33, 126 }, size_gen{ 1, 1000 };
+    std::uniform_int_distribution char_gen{ 33, 126 }, size_gen{ 1, 100 };
     string s; int str_size = size_gen(get_rnd_generator());
     for (int i = 0; i < str_size; i++) {
         s += (char)char_gen(get_rnd_generator());
@@ -175,9 +176,11 @@ string rnd_string() {
 
 template <typename U>
 void do_runs(ring<U>& x, int runs) {
+    std::ofstream out(std::format("C:\\Users\\91730\\source\\repos\\Ring\\tests\\{}runs_{}.txt", runs, sizeof(U)*8));
+    auto start = std::chrono::high_resolution_clock::now();
     std::mt19937_64& mt = get_rnd_generator();
     std::uniform_int_distribution nums{ 1, 3 };
-    std::ofstream out(std::format("C:\\Users\\91730\\source\\repos\\Ring\\tests\\%.iruns_64.txt", runs));
+    std::cout << (std::format("C:\\Users\\91730\\source\\repos\\Ring\\tests\\{}runs_{}.txt", runs, sizeof(U)*8));
     set<string> IPs;
     for (int i = 0; i < runs; i++) {
         int choice = nums(mt);
@@ -213,15 +216,19 @@ void do_runs(ring<U>& x, int runs) {
             out << "nearest destination for " << val << " is: " << ip << "\n";
         }
     }
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = duration_cast<std::chrono::microseconds>(stop - start);
+    std::cout << "duration for " << runs << " runs: " << duration.count() << std::endl;
     out.close();
 }
 
 int main() {
-    ring<uint64> x(1ll << 32, 5);
-    int runs{ 0 }; std::cin >> runs;
-    do_runs(x, runs);
-    ring<uint128_t> y(1ll << 32, 5);
-    do_runs(y, runs);
-    ring<uint256_t> z(1ll << 32, 5);
-    do_runs(z, runs);
+    for (int runs = 10; runs <= 100000; runs *= 10) {
+        ring<uint64_t> x(1ll << 32, 5);
+        do_runs(x, runs);
+        ring<uint128_t> y(1ll << 32, 5);
+        do_runs(y, runs);
+        ring<uint256_t> z(1ll << 32, 5);
+        do_runs(z, runs);
+    }
 }

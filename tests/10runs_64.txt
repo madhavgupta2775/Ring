@@ -1,0 +1,10 @@
+No destination to find.
+added destination: 7G`CKbQk1f:*"-PGwUe,n~!A@SS[(T.%JDJcyGo%>{-|Y&DT)pkm
+nearest destination for ~;\7<nmJL is: 7G`CKbQk1f:*"-PGwUe,n~!A@SS[(T.%JDJcyGo%>{-|Y&DT)pkm
+removed destiantion: 7G`CKbQk1f:*"-PGwUe,n~!A@SS[(T.%JDJcyGo%>{-|Y&DT)pkm
+added destination: WC^@AxUF=0[Pa5sqPK}A7Wq=|q>c2
+removed destiantion: WC^@AxUF=0[Pa5sqPK}A7Wq=|q>c2
+No destination to remove.
+No destination to find.
+No destination to remove.
+No destination to remove.

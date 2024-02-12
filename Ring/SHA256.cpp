@@ -1,7 +1,6 @@
-#include "SHA256.h"
-#include <cstring>
-#include <sstream>
-#include <iomanip>
+module sha256;
+import std;
+using namespace std;
 
 SHA256::SHA256() : m_blocklen(0), m_bitlen(0) {
 	m_state[0] = 0x6a09e667;
