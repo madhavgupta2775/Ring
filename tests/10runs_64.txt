@@ -1,10 +1,10 @@
-No destination to find.
-added destination: 7G`CKbQk1f:*"-PGwUe,n~!A@SS[(T.%JDJcyGo%>{-|Y&DT)pkm
-nearest destination for ~;\7<nmJL is: 7G`CKbQk1f:*"-PGwUe,n~!A@SS[(T.%JDJcyGo%>{-|Y&DT)pkm
-removed destiantion: 7G`CKbQk1f:*"-PGwUe,n~!A@SS[(T.%JDJcyGo%>{-|Y&DT)pkm
-added destination: WC^@AxUF=0[Pa5sqPK}A7Wq=|q>c2
-removed destiantion: WC^@AxUF=0[Pa5sqPK}A7Wq=|q>c2
 No destination to remove.
-No destination to find.
-No destination to remove.
-No destination to remove.
+added destination: ,kfm7Y9G,AW.g/rKK,`y9.&KX?dK5\os0V<%2\#Fv1W%FjPnU$>C|.6,gf~'Ey..b*'KHl`9
+added destination: xj.Ft>d'T}Gk`#h3h|6Q!X`Pf_u!P)N>_p\vdcj62VOPi?al7b,)R{lv?zZX1bm|@5bp
+added destination: =rC<Ibw#AJDg,iunP8rSM}KR`/]8_c]r`nC8@3DQZUErZ*E;j?[+"bn,oEI0pFBsXVZvvu-
+nearest destination for Azq3<u_r<@nug8hv?fWDdYxT@lR$^CzdttqL;b[b->8&'\{Ey8KSH,)Ow6)nA3Q$L"!:~y3ou>&&Py'4*.<` is: =rC<Ibw#AJDg,iunP8rSM}KR`/]8_c]r`nC8@3DQZUErZ*E;j?[+"bn,oEI0pFBsXVZvvu-
+removed destiantion: xj.Ft>d'T}Gk`#h3h|6Q!X`Pf_u!P)N>_p\vdcj62VOPi?al7b,)R{lv?zZX1bm|@5bp
+added destination: MM;3dS<A^[A;n\`viPPd]=x5aeJA#-%m\FyKU)GN,`<xC=E~<pJ=Kd'oc^PD#bd+4i~`$Lj<bZ~yh^m`]A@j=!-32-
+added destination: aXsO"2*-,\svc&g2SkF;ifAV]H98fRRx
+added destination: G[.[b|Md#.9DlfU-pg?Q}v-*X[}@;5;d!/.J22on0vKF7`Dr~S9eQgcm*s,p:i4xP]$
+removed destiantion: ,kfm7Y9G,AW.g/rKK,`y9.&KX?dK5\os0V<%2\#Fv1W%FjPnU$>C|.6,gf~'Ey..b*'KHl`9

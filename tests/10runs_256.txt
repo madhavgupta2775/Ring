@@ -1,10 +1,10 @@
-added destination: ]IAj'p}a+7#j`gvOz7U=5$V*#W#AxaCJn;cYDG8gLv8l>>,ilq
-added destination: ojWRT\bmf57f-rhu:k+(:B0@i!PY7aVT4S?@x2O,$2@cRS1"4seCs>L7I$Q~vsUR|v09,WwT.|=2ZjS}"F~U+.~[!wFJa`dlI*:
-removed destiantion: ]IAj'p}a+7#j`gvOz7U=5$V*#W#AxaCJn;cYDG8gLv8l>>,ilq
-added destination: f[~A8R%VC,~=J_U"ncUGX3P;7Fwe`*deXx)(%<S&~v:ZN=u?SI`qwqq)kArB,!g-:Y#**i@DDp)FOv'+F$eoo;#Ak?
-nearest destination for $Z=RLj/mW2Y3a,$CD0&7.{Bn3{-Ckf;, is: ojWRT\bmf57f-rhu:k+(:B0@i!PY7aVT4S?@x2O,$2@cRS1"4seCs>L7I$Q~vsUR|v09,WwT.|=2ZjS}"F~U+.~[!wFJa`dlI*:
-added destination: WL$LsRMZEaY[rz=!DfFA
-nearest destination for I"Ti-8\x is: ojWRT\bmf57f-rhu:k+(:B0@i!PY7aVT4S?@x2O,$2@cRS1"4seCs>L7I$Q~vsUR|v09,WwT.|=2ZjS}"F~U+.~[!wFJa`dlI*:
-added destination: J\D1d~i~PVf<+&c+]@;zi^hlM"K<skz
-added destination: eAPnPI_F.J.I/*Iuu6\O-$s.!AJy
-removed destiantion: WL$LsRMZEaY[rz=!DfFA
+No destination to remove.
+No destination to find.
+No destination to remove.
+No destination to remove.
+No destination to remove.
+No destination to find.
+No destination to remove.
+added destination: ;1+
+removed destiantion: ;1+
+No destination to find.

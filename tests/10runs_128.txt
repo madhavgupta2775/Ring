@@ -1,10 +1,10 @@
+added destination: c3)H~;V-?3rXEmfkViK1b6c2F$e'J!8H%O8+*O}.)m!E0>W{MOmkE+
+removed destiantion: c3)H~;V-?3rXEmfkViK1b6c2F$e'J!8H%O8+*O}.)m!E0>W{MOmkE+
+added destination: vQm{02^jOSvNutv^sZ\"/b
+nearest destination for b~<gl745.xz48@x9IFCV|zxoK&$!$]XviW^;R6fww^W9a-U^l:;YZ4CKY[?wt/r_.>LIjKpnD.,gG[=*?{VnhFb4{h8 is: vQm{02^jOSvNutv^sZ\"/b
+removed destiantion: vQm{02^jOSvNutv^sZ\"/b
+No destination to find.
 No destination to remove.
+No destination to find.
 No destination to remove.
-added destination: }-w|ZU:5j,d1Kpy#?uf2`0PI#qE(%8(J98x:7oi_=qU4:Wnq}dwYS
-added destination: ''4['8S`j|Z|-FWBgSf:iCqDHVsxmBn,TRl17;vQM()$+KY-cF4SRyvz\c.uf>qj-P'Krfm#P
-nearest destination for &XZIVVFkv0''AJ89p~:R]_=K{p@#w|zZgN8Rkgk?H`"|WsPt_fp|Cu"Nn3O;+:/O`/gyk3Z{i<V1D0>*A4[1PbX].?C7V7IG is: ''4['8S`j|Z|-FWBgSf:iCqDHVsxmBn,TRl17;vQM()$+KY-cF4SRyvz\c.uf>qj-P'Krfm#P
-added destination: .i`(,ftd9sDylH9sB]>4rO5/YpBrUcaFeomuvU'/#s7.z8'h7W:MDC/Xop~z!nfWb!iiMH%|,]BA"CjT^>D%jq%\Csz
-removed destiantion: }-w|ZU:5j,d1Kpy#?uf2`0PI#qE(%8(J98x:7oi_=qU4:Wnq}dwYS
-nearest destination for sp^@vH{v}~}!#@X<f`b5haDyt6jHjROasIy39I|!@$n2)^3.#4.&ky88gbz4SLXp4e`/}36qR@(Ot`3[M~V is: .i`(,ftd9sDylH9sB]>4rO5/YpBrUcaFeomuvU'/#s7.z8'h7W:MDC/Xop~z!nfWb!iiMH%|,]BA"CjT^>D%jq%\Csz
-nearest destination for =]&!yFHR|=2"5~vh@`up|D78/Y(b>2CUepZB=M1/fUtgxfAU9Izy}xz}U(6^??n<^1tFZ<u%Q(j26Z is: ''4['8S`j|Z|-FWBgSf:iCqDHVsxmBn,TRl17;vQM()$+KY-cF4SRyvz\c.uf>qj-P'Krfm#P
-added destination: OfZ4:-`v.,z[70XGa~C;6/ZB}Qb@LC%;t2Tm>w_WmtV_l`>mqfRn1ZY*W^V*${Sc`!~),[b1aW.1
+No destination to find.

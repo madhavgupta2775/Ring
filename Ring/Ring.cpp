@@ -86,6 +86,7 @@ private:
     set<T> vnode_tree;
     map<string, vector<T>> node_to_vnode; // node, vnodes
     map<T, string> vnode_to_node; // vnode, node
+    mutable std::shared_mutex rw_;
 
     T hash(string input) 
     {
@@ -104,6 +105,7 @@ public:
     }
     void add_destination(string IP)
     {
+        std::unique_lock<std::shared_mutex> lk(rw_);
         auto& vnodes = node_to_vnode[IP];
 
         int i = 0;
@@ -120,6 +122,7 @@ public:
     }
     void remove_destination(std::string_view IP) 
     {
+        std::unique_lock<std::shared_mutex> lk(rw_);
         string IP_s = string(IP);
         for (auto& vnode : node_to_vnode[IP_s]) {
             vnode_to_node.erase(vnode);
@@ -130,6 +133,7 @@ public:
     }
     std::string_view find_destination(std::string_view input) 
     {
+        std::shared_lock<std::shared_mutex> lk(rw_);
         T ip_hash = hash(string(input));
         if (lower_bound(vnode_tree.begin(), vnode_tree.end(), ip_hash) != vnode_tree.end())
             return vnode_to_node[*lower_bound(vnode_tree.begin(), vnode_tree.end(), ip_hash)];
